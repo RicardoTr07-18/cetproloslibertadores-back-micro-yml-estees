@@ -65,6 +65,10 @@ logging:
     root: warn                       # ⚡ Menos carga en consola
     org.springframework: info
 
+app:
+  images:
+    path: ../assets
+
 info:
   app:
     name: catalog-service
