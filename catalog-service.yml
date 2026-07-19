@@ -67,7 +67,7 @@ logging:
 
 app:
   images:
-    path: ../assets
+    path: ../assets   # ⚡ Ubicacion de la carpeta raiz para las imagenes
 
 info:
   app:
