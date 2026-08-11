@@ -39,22 +39,7 @@ spring:
             - id: catalog-service
               uri: lb://catalog-service
               predicates:
-                - Path=/api/informationcetpro/**,
-                       /api/matricula/**,
-                       /api/report/grades/**,
-                       /api/report/matricula/**,
-                       /api/modules/**,
-                       /api/report/modules/**,
-                       /api/periods/**,
-                       /api/seccion/**,
-                       /api/cycles/**,
-                       /api/conditions/**,
-                       /api/specialty/**,
-                       /api/student/**,
-                       /api/teacher/**,
-                       /api/resolution/**,
-                       /api/report/teacher/**,
-                       /api/turno/**
+                - Path=/api/catalog/**
             
             # --- Finance Service ---
             - id: finance-service
