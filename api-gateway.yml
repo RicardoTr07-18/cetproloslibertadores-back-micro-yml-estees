@@ -23,31 +23,25 @@ spring:
       server:
         webflux:
           routes:
-            # --- Auth Service ---
+            # --- Auth Microservice ---
             - id: auth-service
               uri: lb://auth-service
               predicates:
                 - Path=/auth/**
 
-            # --- User Service ---
-            - id: user-service
-              uri: lb://auth-service
-              predicates:
-                - Path=/api/user/**
-
-            # --- Catalog Service ---
+            # --- Catalog Microservice ---
             - id: catalog-service
               uri: lb://catalog-service
               predicates:
                 - Path=/api/catalog/**
             
-            # --- Finance Service ---
+            # --- Finance Microservice ---
             - id: finance-service
               uri: lb://finance-service
               predicates:
                 - Path=/api/finance/**
 
-            # --- AI Service ---
+            # --- AI Microservice ---
             - id: ai-service
               uri: lb://ai-service
               predicates:
