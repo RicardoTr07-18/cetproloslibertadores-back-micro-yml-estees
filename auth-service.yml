@@ -50,7 +50,7 @@ jwt:
   expiration-ms: 28800000           # ⚡ tiempo de espera 8 hrs
 
 server:
-  port: 8083
+  port: 8081
 
 management:
   metrics:
