@@ -93,6 +93,14 @@ management:
     web:
       exposure:
         include: info, health, prometheus
+  endpoints:
+    web:
+      exposure:
+        include: info, health, prometheus
+  endpoint:
+    health:
+      show-details: always
+      show-components: always 
   info:
     env:
       enabled: true
