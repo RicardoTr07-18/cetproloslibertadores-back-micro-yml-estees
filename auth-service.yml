@@ -29,6 +29,39 @@ spring:
         max-attempts: 2
         initial-interval: 1000
 
+  # CONFIGURATION REDIS
+  cache:
+    type: redis
+    redis:
+      time-to-live: 600000      # 10 minutos
+      cache-null-values: false
+
+  redis:
+    host: localhost
+    port: 6379
+    timeout: 2000ms
+    connect-timeout: 2000ms
+    lettuce:
+      pool:
+        max-active: 10
+        max-idle: 5
+        min-idle: 2
+        max-wait: 2000ms
+
+# CONFIGURATION CIRCUIT BREAKER
+resilience4j:
+  circuitbreaker:
+    instances:
+      redis:
+        register-health-indicator: true
+        sliding-window-size: 10
+        minimum-number-of-calls: 5
+        permitted-number-of-calls-in-half-open-state: 3
+        automatic-transition-from-open-to-half-open-enabled: true
+        wait-duration-in-open-state: 10s
+        failure-rate-threshold: 50
+        event-consumer-buffer-size: 10
+
 eureka:
   client:
     service-url:
@@ -63,11 +96,15 @@ management:
   info:
     env:
       enabled: true
+  health:
+    redis:
+      enabled: true
 
 logging:
   level:
     root: warn                       # ⚡ Menos logs = arranque más limpio
     org.springframework: info
+    io.github.resilience4j: debug
 
 info:
   app:
